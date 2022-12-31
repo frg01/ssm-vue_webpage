@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//batis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+    
+    <typeAliases>
+        <package name="com.hspedu.furn.bean"/>
+    </typeAliases>
+
+    <!--配置mybatis自带日志输出，查看原生sql-->
+
+    <!--plugins标签需要放在typeAliases标签后，是doctype约束的
+        配置分页拦截器
+    -->
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
+            <!--配置分页合理化 如果pageNum>pages 就显示最后一页
+                如果pageNum<0 ，默认查询第一页
+            -->
+            <property name="reasonable" value="true"/>
+        </plugin>
+    </plugins>
+    
+
+</configuration>
